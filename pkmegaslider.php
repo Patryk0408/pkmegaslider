@@ -53,16 +53,12 @@ class Pkmegaslider extends Module
 
     public function install()
     {
-        include(dirname(__FILE__).'/sql/install.php');
-
         return parent::install() &&
             $this->registerHook('displayHome');
     }
 
     public function uninstall()
     {
-        include(dirname(__FILE__).'/sql/uninstall.php');
-
         return parent::uninstall();
     }
 
