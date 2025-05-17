@@ -9,14 +9,14 @@ class ComposerStaticInitcb46c6c668eb3c8b04df021b10f4c7e5
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
-            'PKMegaSlider\\Controller\\' => 24,
+            'PKMegaSlider\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PKMegaSlider\\Controller\\' => 
+        'PKMegaSlider\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Controller',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

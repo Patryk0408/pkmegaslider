@@ -3,7 +3,7 @@
     "description": "Mega Slider Controller",
     "autoload": {
         "psr-4": {
-            "PKMegaSlider\\Controller\\": "src/Controller/"
+            "PKMegaSlider\\": "src/"
         }
     },
     "config": {
