@@ -1,0 +1,13 @@
+{
+    "name": "src/megaslidercontroller",
+    "description": "Mega Slider Controller",
+    "autoload": {
+        "psr-4": {
+            "PKMegaSlider\\Controller\\": "src/Controller/"
+        }
+    },
+    "config": {
+        "prepend-autoloader": false
+    },
+    "type": "prestashop-module"
+}

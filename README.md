@@ -1,1 +1,1 @@
-# pkmegaslider
+# Mega slider

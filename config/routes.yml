@@ -1,0 +1,3 @@
+mega_slider_list:
+  path: /mega-slider
+  controller: PKMegaSlider\Controller\MegaSliderController::indexAction
