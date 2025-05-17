@@ -18,7 +18,7 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-*  @author    PrestaShop SA <contact@prestashop.com>
+*  @author    Patryk Krawczyk SA <patryk.krawczyk.it@gmail.com>
 *  @copyright 2007-2025 PrestaShop SA
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
@@ -51,10 +51,6 @@ class Pkmegaslider extends Module
         $this->ps_versions_compliancy = array('min' => '8.0', 'max' => _PS_VERSION_);
     }
 
-    /**
-     * Don't forget to create update methods if needed:
-     * http://doc.prestashop.com/display/PS16/Enabling+the+Auto-Update
-     */
     public function install()
     {
         include(dirname(__FILE__).'/sql/install.php');
@@ -70,9 +66,6 @@ class Pkmegaslider extends Module
         return parent::uninstall();
     }
 
-    /**
-     * Load the configuration form
-     */
     public function getContent()
     {
         Tools::redirectAdmin(
