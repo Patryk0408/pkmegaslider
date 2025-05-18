@@ -42,7 +42,7 @@ class MegaSliderController extends FrameworkBundleAdminController {
     );
   }
 
-  public function listAction(Request $request): Response
+  public function listAction(): Response
   {
     $em = $this->getDoctrine()->getManager();
     $data = $em->getRepository(MegaSlider::class)->findAll();
@@ -51,6 +51,26 @@ class MegaSliderController extends FrameworkBundleAdminController {
       self::ADMIN_TEMPLATE_PATH . "list.html.twig",
       [
         'data' => $data
+      ]
+    );
+  }
+
+  public function updateAction(int $id, Request $request): Response
+  {
+    $em = $this->getDoctrine()->getManager();
+    $data = $em->getRepository(MegaSlider::class)->find($id);
+    $form = $this->createForm(MegaSliderType::class, $data);
+    $form->handleRequest($request);
+    if($form->isSubmitted() && $form->isValid()) {
+      $em->flush();
+
+      $this->addFlash('success', 'Slide updated');
+    }
+
+    return $this->render(
+      self::ADMIN_TEMPLATE_PATH . 'update.html.twig',
+      [
+        'form' => $form->createView()
       ]
     );
   }
