@@ -1,3 +1,11 @@
 mega_slider_create:
-  path: /mega-slider
+  path: /mega-slider/create
   controller: PKMegaSlider\Controller\MegaSliderController::indexAction
+
+mega_slider_list:
+  path: /mega-slider/list
+  controller: PKMegaSlider\Controller\MegaSliderController::listAction
+
+mega_slider_update:
+  path: /mega-slider/update/{id}
+  controller: PKMegaSlider\Controller\MegaSliderController::updateAction

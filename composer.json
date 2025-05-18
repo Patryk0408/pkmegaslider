@@ -3,11 +3,14 @@
     "description": "Mega Slider Controller",
     "autoload": {
         "psr-4": {
-            "PKMegaSlider\\": "src/"
+            "PKMegaSlider\\Controller\\": "src/Controller/"
         }
     },
     "config": {
         "prepend-autoloader": false
     },
-    "type": "prestashop-module"
+    "type": "prestashop-module",
+    "require-dev": {
+        "symfony/maker-bundle": "^1.63"
+    }
 }

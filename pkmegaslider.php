@@ -65,7 +65,7 @@ class Pkmegaslider extends Module
     public function getContent()
     {
         Tools::redirectAdmin(
-            SymfonyContainer::getInstance()->get('router')->generate('mega_slider_create')
+            SymfonyContainer::getInstance()->get('router')->generate('mega_slider_list')
         );
     }
 

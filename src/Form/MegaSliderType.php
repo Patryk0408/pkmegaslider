@@ -22,13 +22,15 @@ class MegaSliderType extends AbstractType
           "placeholder" => "Description on slide"
         ]
       ])
-      ->add('imagedesktop', TextType::class, [
+      ->add('imageDesktop', TextType::class, [
+        'label' => "Desktop image",
         'attr' => [
           "placeholder" => "Image for desktop",
           "required" => true
         ]
       ])
-      ->add('imagemobile', TextType::class, [
+      ->add('imageMobile', TextType::class, [
+        'label' => "Mobile image",
         'attr' => [
           "placeholder" => "Image for mobile"
         ]

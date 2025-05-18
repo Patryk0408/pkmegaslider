@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MegaSliderController extends FrameworkBundleAdminController {
 
+  const ADMIN_TEMPLATE_PATH = '@Modules/pkmegaslider/views/templates/admin/';
+
   public function indexAction(Request $request): Response
   {
     $form = $this->createForm(MegaSliderType::class);
@@ -22,21 +24,33 @@ class MegaSliderController extends FrameworkBundleAdminController {
 
       $slide->setName($form->get('name')->getData());
       $slide->setDescription($form->get('description')->getData());
-      $slide->setImageDesktop($form->get('imagedesktop')->getData());
-      $slide->setImageMobile($form->get('imagemobile')->getData());
+      $slide->setImageDesktop($form->get('imageDesktop')->getData());
+      $slide->setImageMobile($form->get('imageMobile')->getData());
       $slide->setLink($form->get('link')->getData());
 
       $em->persist($slide);
       $em->flush();
 
-      $this->addFlash('success', 'Product added');
+      $this->addFlash('success', 'Slide added');
     }
 
     return $this->render(
-      "@Modules/pkmegaslider/views/templates/admin/slide.html.twig",
+      self::ADMIN_TEMPLATE_PATH . "slide.html.twig",
       [
-        'test' => 'Hello World testpk',
         'form' => $form->createView()
+      ]
+    );
+  }
+
+  public function listAction(Request $request): Response
+  {
+    $em = $this->getDoctrine()->getManager();
+    $data = $em->getRepository(MegaSlider::class)->findAll();
+
+    return $this->render(
+      self::ADMIN_TEMPLATE_PATH . "list.html.twig",
+      [
+        'data' => $data
       ]
     );
   }

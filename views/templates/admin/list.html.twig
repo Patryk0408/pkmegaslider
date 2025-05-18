@@ -6,7 +6,7 @@
 			<div class="card">
 				<div class="card-header d-flex justify-content-between align-items-center">
 					<h1 class="m-0">Lista</h1>
-					<a href="{{path("blog_create")}}" class="d-flex">
+					<a href="{{path("mega_slider_create")}}" class="d-flex">
 						<i class="material-icons">add_circle</i>
 					</a>
 				</div>
@@ -16,24 +16,24 @@
 							<tr>
 								<th>Id</th>
 								<th>Name</th>
-								<th>Description</th>
+								<th>Image</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							{# {% for comment in data %} #}
-								{# <tr class="border-bottom">
-									<th scope="row" class="border-0">{{ comment.id }}</th>
-									<td class="border-0">{{ comment.name }}</td>
-									<td class="border-0">{{ comment.description }}</td>
+							{% for slide in data %}
+								<tr class="border-bottom">
+									<th scope="row" class="border-0">{{ slide.id }}</th>
+									<td class="border-0">{{ slide.name }}</td>
+									<td class="border-0">{{ slide.imageDesktop }}</td>
 									<td class="text-right d-flex justify-content-end align-items-center border-0">
-										<a href="{{path("blog_update" , { id : comment.id })}}" type="button" class="btn"><i class="material-icons">edit</i></a>
+										<a href="{{path("blog_update" , { id : slide.id })}}" type="button" class="btn"><i class="material-icons">edit</i></a>
 										<div class="d-inline-block float-right">
 											<div class="btn-group-action text-right">
 												<div class="btn-group">
 													<a class="btn btn-link dropdown-toggle dropdown-toggle-dots dropdown-toggle-split p-0 no-rotate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="btn tooltip-link js-form-submit-btn dropdown-item" type="button" href="{{path("blog_delete" , { id : comment.id })}}">
+														<a class="btn tooltip-link js-form-submit-btn dropdown-item" type="button" href="{{path("blog_delete" , { id : slide.id })}}">
 															{{ 'Delete'|trans({}, 'Admin.Actions') }}
 														</a>
 													</div>
@@ -41,8 +41,8 @@
 											</div>
 										</div>
 									</td>
-								</tr> #}
-							{# {% endfor %} #}
+								</tr>
+							{% endfor %}
 						</tbody>
 					</table>
 				</div>
