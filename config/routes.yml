@@ -9,3 +9,7 @@ mega_slider_list:
 mega_slider_update:
   path: /mega-slider/update/{id}
   controller: PKMegaSlider\Controller\MegaSliderController::updateAction
+
+mega_slider_delete:
+  path: /mega-slider/delete/{id}
+  controller: PKMegaSlider\Controller\MegaSliderController::deleteAction

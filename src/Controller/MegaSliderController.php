@@ -31,7 +31,7 @@ class MegaSliderController extends FrameworkBundleAdminController {
       $em->persist($slide);
       $em->flush();
 
-      $this->addFlash('success', 'Slide added');
+      $this->addFlash('success', 'Slide added.');
     }
 
     return $this->render(
@@ -64,7 +64,7 @@ class MegaSliderController extends FrameworkBundleAdminController {
     if($form->isSubmitted() && $form->isValid()) {
       $em->flush();
 
-      $this->addFlash('success', 'Slide updated');
+      $this->addFlash('success', 'Slide updated.');
     }
 
     return $this->render(
@@ -73,5 +73,20 @@ class MegaSliderController extends FrameworkBundleAdminController {
         'form' => $form->createView()
       ]
     );
+  }
+
+  public function deleteAction(int $id, Request $request): Response
+  {
+    $em = $this->getDoctrine()->getManager();
+    $data = $em->getRepository(MegaSlider::class)->find($id);
+    if(!$data) {
+      $this->addFlash('error', 'This slide is not exist.');
+      return $this->redirectToRoute('mega_slider_list');
+    }
+    $em->remove($data);
+    $em->flush();
+    $this->addFlash('success', 'The slide '. $id . ' removed.');
+
+    return $this->redirectToRoute('mega_slider_list');
   }
 }
